@@ -99,7 +99,7 @@ const addToProgramFavoriteList = async (req, res) => {
 
 const logout = (req, res) => {
     delete req.session.user;
-    res.json({ success: "Logout successfully!"});
+    res.json({ success: true});
 };
 
 const register = (req, res) => {

@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { StationContext } from "../contexts/StationProvider";
@@ -7,7 +7,6 @@ import styles from "../css/ProgramsPage.module.css"
 const ProgramsPage = (props) => {
     const history = useHistory();
     const { getProgramsByChannelId, programsByChannelId } = useContext(StationContext);
-
     const { channelId } = props.match.params;
 
     useEffect(() => {

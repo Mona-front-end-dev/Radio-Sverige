@@ -11,17 +11,14 @@
     border-radius: 10px;
     padding: 1rem;
     width: 50%;
-    
   }
   
-  /* On mouse-over, add a deeper shadow */
   .card:hover {
     background-color: rgba(0, 0, 0);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
 
-  /* .channelType {
-    font-size: 1.5rem;
-  } */
+  .dayList {
+    list-style: none;
+  }
 
- 

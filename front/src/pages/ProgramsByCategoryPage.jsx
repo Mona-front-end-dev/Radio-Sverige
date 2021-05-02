@@ -1,13 +1,8 @@
 import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
 import { StationContext } from "../contexts/StationProvider";
-
-
-import styles from "../css/ProgramPage.module.css"
+import styles from "../css/ProgramPage.module.css";
  
-
-
 const ProgramsByCategoryPage = (props) => {
     const history = useHistory();
     const { getProgramsByCategoryId, programsByCategoryId } = useContext(StationContext);
@@ -34,5 +29,5 @@ const ProgramsByCategoryPage = (props) => {
     };
     return <div>{content}</div>;
 }
- 
+
 export default ProgramsByCategoryPage;

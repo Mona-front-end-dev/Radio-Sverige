@@ -1,14 +1,10 @@
-import { useEffect, useContext, useState } from "react";
-
+import { useEffect, useContext } from "react";
 import { StationContext } from "../contexts/StationProvider";
-
-
-import styles from "../css/ProgramPage.module.css"
+import styles from "../css/ProgramPage.module.css";
 
 const SchedulePage = (props) => {
     const { getChannelSchedule, channelSchedule} = useContext(StationContext);
     const { channelId } = props.match.params;
-
 
     useEffect (()=> {
         getChannelSchedule(channelId);
@@ -43,20 +39,19 @@ const SchedulePage = (props) => {
             targetDayNumber -= 7;
 
         return dayNames[targetDayNumber]
-    }
-
+    };
 
     let content = <h2>Loading..</h2>
     let list = "";
     if(channelSchedule) {
-        list = <ul>
-            <li><button className="btn" onClick={() => {updateList(-1)}}>Yesterdat</button></li>
-            <li><button className="btn" onClick={() => {updateList(0)}}>Today</button></li>
-            <li><button className="btn" onClick={() => {updateList(1)}}>{getDayName(1)}</button></li>
-            <li><button className="btn" onClick={() => {updateList(2)}}>{getDayName(2)}</button></li>
-            <li><button className="btn" onClick={() => {updateList(3)}}>{getDayName(3)}</button></li>
-            <li><button className="btn" onClick={() => {updateList(4)}}>{getDayName(4)}</button></li>
-            <li><button className="btn" onClick={() => {updateList(5)}}>{getDayName(5)}</button></li>
+        list = <ul className={styles.dayList}>
+            <li><button className={styles.btn} onClick={() => {updateList(-1)}}>Yesterdat</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(0)}}>Today</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(1)}}>{getDayName(1)}</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(2)}}>{getDayName(2)}</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(3)}}>{getDayName(3)}</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(4)}}>{getDayName(4)}</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(5)}}>{getDayName(5)}</button></li>
         </ul>
 
         content = channelSchedule.map(ch => 
@@ -69,7 +64,6 @@ const SchedulePage = (props) => {
                 </div>
             </div>
         )
-
     };
     return <section>
             <div>{list}</div> 

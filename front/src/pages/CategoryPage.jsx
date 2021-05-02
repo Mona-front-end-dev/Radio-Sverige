@@ -1,10 +1,9 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
 import { StationContext } from "../contexts/StationProvider";
 import styles from "../css/CategoryPage.module.css"
 
-const CategoryPage = (props) => {
+const CategoryPage = () => {
     const history = useHistory();
     const { getAllCategories, categories } = useContext(StationContext);
 
@@ -30,5 +29,5 @@ const CategoryPage = (props) => {
     };
     return <div>{content}</div>;
 };
- 
+
 export default CategoryPage;
