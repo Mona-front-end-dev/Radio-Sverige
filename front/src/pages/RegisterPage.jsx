@@ -8,26 +8,22 @@ const RegisterPage = (props) => {
 
     const history = useHistory(); 
     const { register } = useContext(UserContext);
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
-// const message visa message här 
+    
+
 
     const handleAccountSubmit = async (e) => {
         e.preventDefault();
         let userInfo = { firstName, lastName, email, password };
-        console.log(userInfo);
-
-        let result = await register();
-        
+        await register(userInfo); 
     };
 
-    const goToLoginPage = () => {
-        console.log("I am in the login page");
-        history.push(`/login/`);
-    };
+    
+
 
     const firstNameHandler = (e) => {
         setFirstName (e.target.value);
@@ -66,7 +62,7 @@ const RegisterPage = (props) => {
                 <label htmlFor="Password" >Password: </label>
                 <input type="password" className="formControl" placeholder="Password" onChange={passwordHandler}/>
             </div>
-            <button type="submmit" className={styles.button}>Create account</button>
+            <button type="submmit" className={styles.button} >Create account</button>
         </form>
     );
 }

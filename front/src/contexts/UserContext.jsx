@@ -6,11 +6,16 @@ export const UserProvider = (props) => {
     const [user, setUser] = useState(null);
 
     const register = async (user) => {
+        console.log(JSON.stringify(user));
+        debugger;
+        let userToRegister = await fetch("/api/v1/users/register", {
+            method: "post",
+            headers: { "Content-Type": "application/json" }, 
+            body:JSON.stringify(user)
+        });
 
-        let userFromServer = await fetch("/api/v1/register");
-        userFromServer = await userFromServer.json();
-        console.log(userFromServer);
-        setUser(userFromServer);
+        userToRegister = await userToRegister.json();
+        console.log(userToRegister);
     };
 
 
@@ -20,12 +25,3 @@ export const UserProvider = (props) => {
                 {props.children}
             </UserContext.Provider>
 };
-
-// let data = {element: "barium"};
-
-// fetch("/post/data/here", {
-//     method: "POST", 
-//     body: JSON.stringify(data)
-//   }).then(res => {
-//     console.log("Request complete! response:", res);
-//   });
