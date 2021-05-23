@@ -1,6 +1,7 @@
 const sqlite3 = require("sqlite3");
 const Encrypt = require("../Encrypt");
 const path = require('path');
+const fetch = require("node-fetch");
 
 const db = new sqlite3.Database(path.join(__dirname , "../../RadioSwedenDB.db"));
 
@@ -63,6 +64,25 @@ const addToChannelFavoriteList = async (req, res) => {
     });
 };
 
+// able to c favorite channels
+const saveFavoriteChannel = (req, res) => {
+    let favoriteChannel = req.body;
+    let query = /*sql*/ `INSERT INTO favoriteChannel(channelId, userId) VALUEA ($channelId, $userId)`;
+    let params = {
+        $channelId: favoriteChannel.channelId,
+        $userId: register.session.user.userId
+    };
+    db.run(query, params, function (err){
+        if(err) {
+            res.status(400).json({error: err});
+            return;
+        }
+        res.json({success: "Favorite channel has been added successfully!"})
+    });
+};
+
+
+
 
 const addToProgramFavoriteList = async (req, res) => {
 
@@ -92,6 +112,8 @@ const addToProgramFavoriteList = async (req, res) => {
         return;
     });
 };
+
+
 
 
 
@@ -135,4 +157,6 @@ const register = (req, res) => {
     });
 
 };
-module.exports = { whoami, login, logout, register, addToChannelFavoriteList, addToProgramFavoriteList};
+
+
+module.exports = { whoami, login, logout, register, addToChannelFavoriteList, addToProgramFavoriteList, saveFavoriteChannel};

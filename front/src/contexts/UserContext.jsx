@@ -40,7 +40,7 @@ export const UserProvider = (props) => {
             localStorage.setItem('user', JSON.stringify(body.loggedInUser));
             setUser(body.loggedInUser);
             // redirect to home page
-            history.push(``);
+            history.push('');
         }
         else
             alert(body.error);
