@@ -64,6 +64,39 @@ const addToChannelFavoriteList = async (req, res) => {
     });
 };
 
+const getFavoriteChannels = async (req, res) => {
+
+    if(!req.session.user)
+    {
+        res.status(401).json({ error:"Unauthorized"});
+        return;
+    }
+
+    const userId = req.session.user.id;
+
+    query = /*sql*/ `SELECT * FROM userChannels WHERE userId = $userId`;
+    params = {
+        $userId: userId
+    }
+
+    db.all(query, params, (err, channels) => {
+        if (err) {
+            res.status(400).json({error: err});
+            return;
+        }
+
+        res.json(channels)
+
+
+    })
+}
+
+
+
+
+
+
+
 const addToProgramFavoriteList = async (req, res) => {
 
     if(!req.session.user)
@@ -133,4 +166,4 @@ const register = (req, res) => {
 };
 
 
-module.exports = { whoami, login, logout, register, addToChannelFavoriteList, addToProgramFavoriteList};
+module.exports = { whoami, login, logout, register, addToChannelFavoriteList, addToProgramFavoriteList, getFavoriteChannels};
