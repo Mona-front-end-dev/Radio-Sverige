@@ -1,7 +1,8 @@
 import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { FavoriteContext } from "../contexts/FavoritContext"
-import styles from "../css/ProgramPage.module.css"
+import styles from "../css/ProgramPage.module.css";
+import ChannelItem from "../components/ChannelItem";
 
 
 const FavoriteChannelsPage = (props) => {
@@ -13,10 +14,12 @@ const FavoriteChannelsPage = (props) => {
         addToChannelFavoriteList(channelId);
     }, []);
 
-   
+//    const filterFavoritChannelsFromOther = () => { is it correct to use filter here?
+
+//    }
 
     const renderFavoriteChannels = () => {
-        return addToChannelFavoriteList().map((favoriteChannel) => (
+        return addToChannelFavoriteList().map((favoriteChannel) => 
             <div className={styles.card} key={favoriteChannel.id}>
                 <div className={styles.title}>
                     <h2>Favorite channels</h2>
@@ -25,7 +28,7 @@ const FavoriteChannelsPage = (props) => {
 
                 </div>
             </div>
-        ));
+        );
     };
     return (
         <div>
