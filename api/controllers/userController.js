@@ -85,7 +85,6 @@ const getFavoriteChannels = async (req, res) => {
     }
 
     res.json(channels);
-    return;
   });
 };
 
@@ -97,7 +96,7 @@ const deleteFromChannelFavoriteList = async (req, res) => {
     $channelId: channelId,
   };
 
-  db.run(query, params, (err, channels) => {
+  db.run(query, params, (err) => {
     if (err) {
       res.status(400).json({ error: err });
       return;
@@ -105,9 +104,7 @@ const deleteFromChannelFavoriteList = async (req, res) => {
 
     res.json({
       Success: "Channel has been deleted successfully",
-      channels,
     });
-    return;
   });
 };
 
@@ -126,7 +123,7 @@ const addToProgramFavoriteList = async (req, res) => {
     $programId: programId,
   };
 
-  db.run(query, params, function (err) {
+  db.run(query, params, (err) => {
     if (err) {
       res.status(400).json({ error: err });
       return;
