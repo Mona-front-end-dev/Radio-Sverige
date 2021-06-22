@@ -45,7 +45,7 @@ const SchedulePage = (props) => {
     let list = "";
     if(channelSchedule) {
         list = <ul className={styles.dayList}>
-            <li><button className={styles.btn} onClick={() => {updateList(-1)}}>Yesterdat</button></li>
+            <li><button className={styles.btn} onClick={() => {updateList(-1)}}>Yesterday</button></li>
             <li><button className={styles.btn} onClick={() => {updateList(0)}}>Today</button></li>
             <li><button className={styles.btn} onClick={() => {updateList(1)}}>{getDayName(1)}</button></li>
             <li><button className={styles.btn} onClick={() => {updateList(2)}}>{getDayName(2)}</button></li>
