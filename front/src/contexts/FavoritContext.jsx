@@ -1,15 +1,12 @@
-import { createContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-
+import { createContext, useState } from "react";
 export const FavoriteContext = createContext();
 
 export const FavoritProvider = (props) => {
-    const history = useHistory();
     const [favoriteChannel, setFavoriteChannel] = useState(null);
 
 
     const addToChannelFavoriteList = async (channelId) => {
-        let favoriteChannel = await fetch(`/api/v1/channels/saveFavoriteChannel`, {
+        let favoriteChannel = await fetch(`/api/v1/users/addFavoriteChannel/${channelId}`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
