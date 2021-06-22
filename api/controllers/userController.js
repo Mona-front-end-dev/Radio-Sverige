@@ -64,26 +64,6 @@ const addToChannelFavoriteList = async (req, res) => {
     });
 };
 
-// able to c favorite channels
-const saveFavoriteChannel = (req, res) => {
-    let favoriteChannel = req.body;
-    let query = /*sql*/ `INSERT INTO favoriteChannel(channelId, userId) VALUEA ($channelId, $userId)`;
-    let params = {
-        $channelId: favoriteChannel.channelId,
-        $userId: register.session.user.userId
-    };
-    db.run(query, params, function (err){
-        if(err) {
-            res.status(400).json({error: err});
-            return;
-        }
-        res.json({success: "Favorite channel has been added successfully!"})
-    });
-};
-
-
-
-
 const addToProgramFavoriteList = async (req, res) => {
 
     if(!req.session.user)
@@ -112,12 +92,6 @@ const addToProgramFavoriteList = async (req, res) => {
         return;
     });
 };
-
-
-
-
-
-
 
 const logout = (req, res) => {
     delete req.session.user;
@@ -159,4 +133,4 @@ const register = (req, res) => {
 };
 
 
-module.exports = { whoami, login, logout, register, addToChannelFavoriteList, addToProgramFavoriteList, saveFavoriteChannel};
+module.exports = { whoami, login, logout, register, addToChannelFavoriteList, addToProgramFavoriteList};
