@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { FavoriteContext } from "../contexts/FavoritContext";
 import styles from "../css/HomePage.module.css";
 
 const ChannelItem = (props) => {
   const history = useHistory();
-  const { addToChannelFavoriteList } = useContext(FavoriteContext);
+  const { addToChannelFavoriteList, deleteFromChannelFavoriteList, getFavoriteChannels} = useContext(FavoriteContext);
+
+
 
 
   const clickHandler = (channelId) => {
@@ -21,15 +23,17 @@ const ChannelItem = (props) => {
   };
 
   const channelFavoritRemoveHandler = (channelId) => {
-
+    deleteFromChannelFavoriteList(channelId);
     // remove channel from favorites by implementing a method in context to call an api from backend to remove the channel from the favorite list of the current aiuthenticated user
   };
 
   let user = localStorage.getItem("user");
+  // console.log(user.favoriteChannel);
 
   let favoriteButtonContent;
+  let favoriteChannel = false;
   if (!user) favoriteButtonContent = null;
-  else if (props.channel.channeltype.startsWith('R'))
+  else if (props.isInFavorite)
     favoriteButtonContent = (
       <button
         className={styles.button}
