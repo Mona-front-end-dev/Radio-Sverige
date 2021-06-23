@@ -37,6 +37,7 @@ const login = (req, res) => {
 };
 
 const addToChannelFavoriteList = async (req, res) => {
+ 
   if (!req.session.user) {
     res.status(401).json({ error: "Unauthorized" });
     return;
@@ -44,7 +45,6 @@ const addToChannelFavoriteList = async (req, res) => {
 
   const channelId = req.params.channelId;
   const userId = req.session.user.id;
-
   let query = /*sql*/ `INSERT INTO userChannels (userId, channelId) VALUES ($userId, $channelId)`;
   params = {
     $userId: userId,
