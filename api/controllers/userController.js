@@ -90,10 +90,13 @@ const getFavoriteChannels = async (req, res) => {
 
 const deleteFromChannelFavoriteList = async (req, res) => {
   const channelId = req.params.channelId;
+  const userId = req.params.userId;
 
-  let query = /*sql*/ `DELETE FROM userChannels WHERE channelId = $channelId`;
+
+  let query = /*sql*/ `DELETE FROM userChannels WHERE channelId = $channelId AND userId = $userId`;
   params = {
     $channelId: channelId,
+    $userId: userId
   };
 
   db.run(query, params, (err) => {
