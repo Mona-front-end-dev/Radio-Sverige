@@ -89,8 +89,14 @@ const getFavoriteChannels = async (req, res) => {
 };
 
 const deleteFromChannelFavoriteList = async (req, res) => {
+
+    if (!req.session.user) {
+        res.status(401).json({ error: "Unauthorized" });
+        return;
+    }
+
   const channelId = req.params.channelId;
-  const userId = req.params.userId;
+  const userId = req.session.user.id;
 
 
   let query = /*sql*/ `DELETE FROM userChannels WHERE channelId = $channelId AND userId = $userId`;
