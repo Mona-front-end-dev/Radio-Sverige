@@ -25,7 +25,7 @@ const HomePage = () => {
         });
     else
         channelView = null;
-    // console.log(channelView);
+
     return (
         <div className={styles.channelsList}>
             <h1>All channels are listed below</h1>
