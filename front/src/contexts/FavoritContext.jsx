@@ -12,8 +12,7 @@ export const FavoritProvider = (props) => {
             method: "POST",
             headers: {
                 "content-type": "application/json",
-            },
-            body: JSON.stringify(channelId),
+            }
         });
         favoriteChannel = await favoriteChannel.json();
         console.log(favoriteChannel);
@@ -28,7 +27,7 @@ export const FavoritProvider = (props) => {
     };
 
     const deleteFromChannelFavoriteList = async (channelId, userId) => {
-        await fetch(`/api/v1/users/deleteFavoriteChannel/${channelId}/${userId}`, {
+        await fetch(`/api/v1/users/deleteFavoriteChannel/${channelId}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",
