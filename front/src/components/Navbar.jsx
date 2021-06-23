@@ -9,8 +9,7 @@ const { logout } = useContext(UserContext);
 const [links, setLinks] = useState([
     { name: "Home", url: "/", showState: 0 },
     { name: "Categories", url: "/categories", showState: 0 },
-    { name: "Favorit channels", url: "/favoriteChannels" },
-    // {name: "Favorit programs", url:"/favoritPrograms"},
+    { name: "Favorites", url: "/favorites" },
     { name: "Register", url: "/register", showState: 1 },
     { name: "Login", url: "/login", showState: 1 },
     {

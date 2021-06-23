@@ -29,7 +29,7 @@ const App = () => {
               <Route exact path="/channel/:channelId" component={ProgramsPage} />
               <Route exact path="/programs/:programId" component={ProgramPage} />
               <Route exact path="/programs/category/:categoryId" component={ProgramsByCategoryPage} />
-              <Route exact path="/favoriteChannels" component={FavoritePage} />
+              <Route exact path="/favorites" component={FavoritePage} />
               <Route exact path="/register" component={RegisterPage} />
               <Route exact path="/login" component={LoginPage} />
               </FavoritProvider>
