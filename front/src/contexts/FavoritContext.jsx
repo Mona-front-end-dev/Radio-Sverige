@@ -2,7 +2,9 @@ import { createContext, useState } from "react";
 export const FavoriteContext = createContext();
 
 export const FavoritProvider = (props) => {
-    const [favoriteChannel, setFavoriteChannel] = useState(null);
+    const [favoriteChannels, setFavoriteChannels] = useState(null);
+
+
 
 
     const addToChannelFavoriteList = async (channelId) => {
@@ -17,16 +19,28 @@ export const FavoritProvider = (props) => {
         console.log(favoriteChannel);
     };
 
-    const getFavoriteChannelList = async (channelId) => {
-        let favoriteChannel = await fetch(`/api/v1/users/addFavoriteChannel/${channelId}`);
-        favoriteChannel = await favoriteChannel.json();
-        debugger;
-        console.log(favoriteChannel);
-        setFavoriteChannel(favoriteChannel);
+    const getFavoriteChannels = async () => {
+        let favoriteChannels = await fetch(`/api/v1/users/getFavoriteChannels`);
+        favoriteChannels = await favoriteChannels.json();
+
+        console.log(favoriteChannels);
+        setFavoriteChannels(favoriteChannels);
     };
 
+    const deleteFromChannelFavoriteList = async (channelId, userId) => {
+        await fetch(`/api/v1/users/deleteFavoriteChannel/${channelId}/${userId}`, {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json",
+            },
+        });
+        getFavoriteChannels(userId);
+        
+    };
+        
 
-    const values = { addToChannelFavoriteList, favoriteChannel, getFavoriteChannelList };
+
+    const values = { addToChannelFavoriteList, favoriteChannels, getFavoriteChannels, deleteFromChannelFavoriteList};
 
     return <FavoriteContext.Provider value={values}>
         {props.children}
