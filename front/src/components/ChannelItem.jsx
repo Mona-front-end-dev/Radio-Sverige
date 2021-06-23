@@ -24,14 +24,12 @@ const ChannelItem = (props) => {
 
   const channelFavoritRemoveHandler = (channelId) => {
     deleteFromChannelFavoriteList(channelId);
-    // remove channel from favorites by implementing a method in context to call an api from backend to remove the channel from the favorite list of the current aiuthenticated user
   };
 
   let user = localStorage.getItem("user");
   // console.log(user.favoriteChannel);
 
   let favoriteButtonContent;
-  let favoriteChannel = false;
   if (!user) favoriteButtonContent = null;
   else if (props.isInFavorite)
     favoriteButtonContent = (

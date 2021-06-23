@@ -3,7 +3,7 @@ import {createContext, useState } from "react";
 export const StationContext = createContext();
 
 export const StationProvider = (props) => {
-    const [channels, setChannels] = useState(null);
+    const [channels, setChannels] = useState([]);
     const [singleChannel, setSingleChannel] = useState(null);
     const [programsByCategoryId, setProgramsByCategoryId] = useState(null);
     const [programsByChannelId, setProgramsByChannelId] = useState(null);

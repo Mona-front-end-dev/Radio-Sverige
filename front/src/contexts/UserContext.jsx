@@ -47,12 +47,12 @@ export const UserProvider = (props) => {
     };
 
     const logout = async () => {
-        let userToDelete = await fetch("/api/v1/users/logout", {
+        let response = await fetch("/api/v1/users/logout", {
             method: "post"
         });
-        const body = await userToDelete.json();
+        const body = await response.json();
 
-        if(body.success) {
+        if(response.status === 200) {
             localStorage.removeItem('user');
             setUser(null);
             history.push('');

@@ -11,7 +11,7 @@ import SchedulePage from "./pages/SchedulePage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage"
 import { UserProvider } from "./contexts/UserContext";
-import FavoriteChannelsPage from "./pages/FavoriteChannelsPage";
+import FavoritePage from "./pages/FavoritePage";
 import {FavoritProvider} from "./contexts/FavoritContext"
 
 
@@ -29,7 +29,7 @@ const App = () => {
               <Route exact path="/channel/:channelId" component={ProgramsPage} />
               <Route exact path="/programs/:programId" component={ProgramPage} />
               <Route exact path="/programs/category/:categoryId" component={ProgramsByCategoryPage} />
-              <Route exact path="/channels/favoritChannels/:channelId" component={FavoriteChannelsPage} />
+              <Route exact path="/favoriteChannels" component={FavoritePage} />
               <Route exact path="/register" component={RegisterPage} />
               <Route exact path="/login" component={LoginPage} />
               </FavoritProvider>
