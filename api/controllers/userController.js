@@ -37,7 +37,6 @@ const login = (req, res) => {
 };
 
 const addToChannelFavoriteList = async (req, res) => {
- 
   if (!req.session.user) {
     res.status(401).json({ error: "Unauthorized" });
     return;
@@ -89,20 +88,18 @@ const getFavoriteChannels = async (req, res) => {
 };
 
 const deleteFromChannelFavoriteList = async (req, res) => {
-
-    if (!req.session.user) {
-        res.status(401).json({ error: "Unauthorized" });
-        return;
-    }
+  if (!req.session.user) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
 
   const channelId = req.params.channelId;
   const userId = req.session.user.id;
 
-
   let query = /*sql*/ `DELETE FROM userChannels WHERE channelId = $channelId AND userId = $userId`;
   params = {
     $channelId: channelId,
-    $userId: userId
+    $userId: userId,
   };
 
   db.run(query, params, (err) => {
@@ -117,6 +114,56 @@ const deleteFromChannelFavoriteList = async (req, res) => {
   });
 };
 
+const getFavoritePrograms = async (req, res) => {
+  if (!req.session.user) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
+
+  const userId = req.session.user.id;
+
+  let query = /*sql*/ `SELECT * FROM userPrograms WHERE userId = $userId`;
+  params = {
+    $userId: userId,
+  };
+
+  db.all(query, params, (err, programs) => {
+    if (err) {
+      res.status(400).json({ error: err });
+      return;
+    }
+
+    res.json(programs);
+  });
+};
+
+const deleteFromProgramFavoriteList = async (req, res) => {
+  if (!req.session.user) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
+
+  const programId = req.params.programId;
+  const userId = req.session.user.id;
+
+  let query = /*sql*/ `DELETE FROM userPrograms WHERE programId = $programId AND userId = $userId`;
+  params = {
+    $programId: programId,
+    $userId: userId,
+  };
+
+  db.run(query, params, (err) => {
+    if (err) {
+      res.status(400).json({ error: err });
+      return;
+    }
+
+    res.json({
+      Success: "Program has been deleted successfully",
+    });
+  });
+};
+
 const addToProgramFavoriteList = async (req, res) => {
   if (!req.session.user) {
     res.status(401).json({ error: "Unauthorized" });
@@ -126,7 +173,7 @@ const addToProgramFavoriteList = async (req, res) => {
   const programId = req.params.programId;
   const userId = req.session.user.id;
 
-  query = /*sql*/ `INSERT INTO userPrograms (userId, programId) VALUES ($userId, $programId)`;
+  let query = /*sql*/ `INSERT INTO userPrograms (userId, programId) VALUES ($userId, $programId)`;
   params = {
     $userId: userId,
     $programId: programId,
@@ -196,4 +243,6 @@ module.exports = {
   addToProgramFavoriteList,
   getFavoriteChannels,
   deleteFromChannelFavoriteList,
+  getFavoritePrograms,
+  deleteFromProgramFavoriteList,
 };
