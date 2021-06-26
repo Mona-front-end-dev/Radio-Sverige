@@ -1,14 +1,12 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FavoriteContext } from "../contexts/FavoritContext";
 import styles from "../css/HomePage.module.css";
 
 const ChannelItem = (props) => {
   const history = useHistory();
-  const { addToChannelFavoriteList, deleteFromChannelFavoriteList, getFavoriteChannels} = useContext(FavoriteContext);
-
-
-
+  const { addToChannelFavoriteList, deleteFromChannelFavoriteList } =
+    useContext(FavoriteContext);
 
   const clickHandler = (channelId) => {
     history.push(`/channel/${channelId}`);
@@ -37,7 +35,7 @@ const ChannelItem = (props) => {
         className={styles.button}
         onClick={() => channelFavoritRemoveHandler(props.channel.id)}
       >
-        Remove the channel from my favarit channels
+        Remove the channel from my favarites
       </button>
     );
   else
@@ -46,7 +44,7 @@ const ChannelItem = (props) => {
         className={styles.button}
         onClick={() => channelFavoritAddHandler(props.channel.id)}
       >
-        Add the channel to my favarit channels
+        Add the channel to my favarites
       </button>
     );
 
