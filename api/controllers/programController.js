@@ -6,38 +6,48 @@ const utils = require("../core/utilities");
 
 //kunna lista alla program för en viss kanal.
 const getProgramsByChannelId = async (req, res) => {
-
-    const response = await fetch(
-        `http://api.sr.se/api/v2/programs/index?channelid=${req.params.channelId}&${json}&${paginationFalse}`
-        ); 
-    body = await response.json();
-    res.json(body.programs);
+  const response = await fetch(
+    `http://api.sr.se/api/v2/programs/index?channelid=${req.params.channelId}&${json}&${paginationFalse}`
+  );
+  body = await response.json();
+  res.json(body.programs);
 };
 
 //lista alla program i en viss kategori.
 const getProgramsByCategoryId = async (req, res) => {
-    const categoryId = req.params.categoryId;
+  const categoryId = req.params.categoryId;
 
-    let response = await fetch(
-        `http://api.sr.se/api/v2/programs/index/?programcategoryid=${categoryId}&${json}`
-    );
-    body = await response.json();
-    res.json(body.programs);
+  let response = await fetch(
+    `http://api.sr.se/api/v2/programs/index/?programcategoryid=${categoryId}&${json}`
+  );
+  body = await response.json();
+  res.json(body.programs);
+};
+
+//lista alla program
+const getAllPrograms = async (req, res) => {
+  let response = await fetch(
+    `http://api.sr.se/api/v2/programs?size=999999&${json}`
+  );
+  body = await response.json();
+  res.json(body.programs);
 };
 
 //kunna se information om ett program.
-const getProgramById = async (req, res) =>{
-    let programId = req.params.programId;
+const getProgramById = async (req, res) => {
+  let programId = req.params.programId;
 
-    let response = await fetch(
-        `http://api.sr.se/api/v2/programs/${programId}?${json}`);
+  let response = await fetch(
+    `http://api.sr.se/api/v2/programs/${programId}?${json}`
+  );
 
-    body = await response.json();
-    res.json(body.program);
-}
+  body = await response.json();
+  res.json(body.program);
+};
 
 module.exports = {
-    getProgramsByChannelId,
-    getProgramsByCategoryId,
-    getProgramById
-}
+  getProgramsByChannelId,
+  getProgramsByCategoryId,
+  getProgramById,
+  getAllPrograms,
+};
