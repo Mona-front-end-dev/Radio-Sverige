@@ -44,7 +44,7 @@ const ChannelItem = (props) => {
         className={styles.button}
         onClick={() => channelFavoritAddHandler(props.channel.id)}
       >
-        Add the channel to my favarites
+        Add the channel to my favarit
       </button>
     );
 
@@ -52,9 +52,10 @@ const ChannelItem = (props) => {
     <div className={styles.card} key={props.channel.id}>
       <div className="title">
         <h2 className={styles.channeltype}>
-          Channel type: {props.channel.channeltype}
+          {props.channel.channeltype}
+          {" , "}
+          {props.channel.name}
         </h2>
-        <p>Channel Name: {props.channel.name}</p>
         <div className={styles.buttonBox}>
           <button
             className={styles.button}
