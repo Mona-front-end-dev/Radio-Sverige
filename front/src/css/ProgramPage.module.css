@@ -22,3 +22,8 @@
     list-style: none;
   }
 
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
