@@ -7,7 +7,7 @@ const { query } = require("express");
 const db = new sqlite3.Database(path.join(__dirname, "../../RadioSwedenDB.db"));
 
 //here we check which session is active and return this to the frontend
-//. If I want user just see some part I have to use this part of cod
+
 const whoami = (req, res) => {
   res.json(req.session.user || null);
 };
