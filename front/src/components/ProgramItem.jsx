@@ -36,8 +36,14 @@ const ProgramItem = (props) => {
         Add the program to my favarites
       </button>
     );
-    return <div>{favBtnContent}</div>;
-
+  return (
+    <div className={styles.card} key={props.program.id}>
+      <div className="title">
+        <h2>{props.program.name}</h2>
+        <div className={styles.buttonBox}>{favBtnContent}</div>
+      </div>
+    </div>
+  );
 };
 
 export default ProgramItem;
