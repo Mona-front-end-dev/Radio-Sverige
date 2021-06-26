@@ -10,6 +10,7 @@ export const StationProvider = (props) => {
     const [channelSchedule, setChannelSchedule] = useState(null);
     const [categories, setCategories] = useState(null);
     const [ programById, setProgramById] = useState(null);
+    const [ programs, setPrograms] = useState([]);
 
     const getAllChannels = async () => {
         let channels = await fetch("/api/v1/channels");
@@ -60,12 +61,19 @@ export const StationProvider = (props) => {
         setProgramById(programById);
     };
 
+    const getAllPrograms = async() => {
+        let response = await fetch(`/api/v1/programs`);
+        const programs = await response.json();
+        
+        if(response.status === 200)
+            setPrograms(programs)
+    }
 
 
     const values = { channels, getAllChannels, singleChannel, getChannelById, 
                     getProgramsByChannelId, getChannelSchedule, getAllCategories,
                     getProgramsByCategoryId, getProgramById, categories, programsByCategoryId, 
-                    programsByChannelId, programById, channelSchedule };
+                    programsByChannelId, programById, channelSchedule, programs, setPrograms, getAllPrograms};
 
     return  <StationContext.Provider value={values}>
                 {props.children}
