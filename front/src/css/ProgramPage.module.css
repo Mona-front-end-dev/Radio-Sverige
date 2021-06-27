@@ -2,7 +2,7 @@
     color: green;
 }
 
-.card {
+.card  {
     /* Add shadows to create the "card" effect */
     background-color: rgba(0, 0, 0, 0.808);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -30,9 +30,18 @@
 
 .twoClmn {
   display: flex;
+  justify-content: space-between;
   
 }
 
 h2, h1{
   text-align: center;
+}
+
+.margin {
+  margin: 0 10rem;
+}
+
+.infoClick:hover {
+  font-weight: bolder;
 }

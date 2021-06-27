@@ -36,13 +36,13 @@ const FavoritePage = () => {
 
   return (
     <div className={styles.twoClmn}>
-      <div>
+      <div >
         <h1>My Channels</h1>
-        <div>{renderFavoriteChannels()}</div>
+        <div className={styles.margin}>{renderFavoriteChannels()}</div>
       </div>
-      <div>
+      <div >
         <h1>My Programs</h1>
-        <div>{renderFavoritePrograms()}</div>
+        <div className={styles.margin}>{renderFavoritePrograms()}</div>
       </div>
     </div>
   );
