@@ -9,7 +9,6 @@ const { logout } = useContext(UserContext);
 const [links, setLinks] = useState([
     
     
-    {name: "RadioSWEDEN", url: "/", showState:0},
     { name: "Channels", url: "/", showState: 0 },
     { name: "Categories", url: "/categories", showState: 0 },
     { name: "Favorites", url: "/favorites", showState: 2 },
@@ -61,7 +60,14 @@ const renderLinks = () => {
     });
 };
 
-return <nav className={styles.navbar}>{renderLinks() }</nav>;
-};
+return <header className={styles.topHeader}>
+    <Link className={`${styles.link} ${styles.brand}`} to={'/'}>
+                RadioSWEDEN
+                </Link>
+    <nav className={styles.navbar}>
+        {renderLinks() }
+    </nav>
+</header> 
+}
 
 export default Navbar;

@@ -1,5 +1,4 @@
 .navbar {
-    border-bottom:solid 1px rgb(150, 146, 146);
     display: flex;
     justify-content: center;
     padding: 0.5rem;
@@ -17,3 +16,13 @@
     font-weight: bold;
   }
   
+  .brand {
+    padding: 0.5rem;
+  }
+
+  .topHeader {
+
+    border-bottom:solid 1px rgb(150, 146, 146);
+    display: flex;
+    justify-content: space-between;
+  }
