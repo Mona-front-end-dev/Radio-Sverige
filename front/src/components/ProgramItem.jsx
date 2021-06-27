@@ -2,7 +2,10 @@ import { useContext } from "react";
 import { FavoriteContext } from "../contexts/FavoritContext";
 import styles from "../css/ProgramPage.module.css";
 
+import { useHistory } from "react-router-dom";
+
 const ProgramItem = (props) => {
+  const history = useHistory();
   const { addToProgramFavoriteList, deleteFromProgramFavoriteList } =
     useContext(FavoriteContext);
 
@@ -12,6 +15,10 @@ const ProgramItem = (props) => {
 
   const programFavRemoveHandler = (programId) => {
     deleteFromProgramFavoriteList(programId);
+  };
+
+  const clickInfoHandler = (programId) => {
+    history.push(`/programs/${programId}`);
   };
 
   let user = localStorage.getItem("user");
@@ -39,8 +46,20 @@ const ProgramItem = (props) => {
   return (
     <div className={styles.card} key={props.program.id}>
       <div className="title">
+        <img
+          src={props.program.programimagewide}
+          alt="program image"
+          width="100"
+          height="100"
+        />
         <h2>{props.program.name}</h2>
         <div className={styles.buttonBox}>{favBtnContent}</div>
+        <span
+          onClick={() => clickInfoHandler(props.program.id)}
+          className={styles.infoClick}
+        >
+          Mor info
+        </span>
       </div>
     </div>
   );
