@@ -51,6 +51,12 @@ const ChannelItem = (props) => {
   return (
     <div className={styles.card} key={props.channel.id}>
       <div className="title">
+        <img
+          src={props.channel.image}
+          alt="channel logo"
+          width="70"
+          height="70"
+        />
         <h2 className={styles.channeltype}>
           {props.channel.channeltype}
           {" , "}
