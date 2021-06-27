@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FavoriteContext } from "../contexts/FavoritContext";
-import styles from "../css/HomePage.module.css";
+import styles from "../css/ChannelsPage.module.css";
 
 const ChannelItem = (props) => {
   const history = useHistory();

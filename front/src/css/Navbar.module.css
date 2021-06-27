@@ -1,18 +1,19 @@
 .navbar {
-    background: rgba(0, 0, 0, 0.8);
+    border-bottom:solid 1px rgb(150, 146, 146);
     display: flex;
     justify-content: center;
     padding: 0.5rem;
   }
   
   .link {
-    color: yellow;
+    color: rgb(150, 146, 146);
     font-size: 1.5rem;
     text-decoration: none;
     margin: 0 0.5rem;
   }
   
   .link:hover {
-    color: lightgray;
+    color: rgb(80, 77, 77);
+    font-weight: bold;
   }
   

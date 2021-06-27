@@ -7,17 +7,22 @@ import styles from "../css/Navbar.module.css";
 const Navbar = (props) => {
 const { logout } = useContext(UserContext);
 const [links, setLinks] = useState([
-    { name: "Home", url: "/", showState: 0 },
+    
+    
+    {name: "RadioSWEDEN", url: "/", showState:0},
+    { name: "Channels", url: "/", showState: 0 },
     { name: "Categories", url: "/categories", showState: 0 },
     { name: "Favorites", url: "/favorites", showState: 2 },
     { name: "Register", url: "/register", showState: 1 },
     { name: "Login", url: "/login", showState: 1 },
     {
     name: "Logout",
-    url: "",
+    url: "/",
     showState: 2,
     callback: (e) => logoutHandler(e),
     },
+    
+
 ]);
 
 const logoutHandler = async (e) => {
