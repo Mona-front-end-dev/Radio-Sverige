@@ -12,6 +12,7 @@
     padding: 1rem;
     width: 50%;
     cursor: pointer;
+    color: white;
   }
   
   .card:hover {

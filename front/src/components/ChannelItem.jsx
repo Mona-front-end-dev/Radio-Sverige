@@ -44,7 +44,7 @@ const ChannelItem = (props) => {
         className={styles.button}
         onClick={() => channelFavoritAddHandler(props.channel.id)}
       >
-        Add the channel to my favarit
+        Add the channel to my favarites
       </button>
     );
 

@@ -10,7 +10,8 @@
     margin: 2rem auto;
     border-radius: 10px;
     padding: 1rem;
-    width: 50%;
+    width: 100%;
+    color: white;
   }
   
   .card:hover {
@@ -27,3 +28,11 @@
     justify-content: space-between;
   }
 
+.twoClmn {
+  display: flex;
+  
+}
+
+h2, h1{
+  text-align: center;
+}

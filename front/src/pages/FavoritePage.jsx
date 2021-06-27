@@ -30,16 +30,20 @@ const FavoritePage = () => {
 
   const renderFavoritePrograms = () => {
     return programs
-    .filter((p) => favoritePrograms.find((fp) => fp.programId === p.id))
-    .map((p) => <ProgramItem program={p} isInFavorite={true} />);
+      .filter((p) => favoritePrograms.find((fp) => fp.programId === p.id))
+      .map((p) => <ProgramItem program={p} isInFavorite={true} />);
   };
 
   return (
-    <div>
-      <h1>Your Channels</h1>
-      <div>{renderFavoriteChannels()}</div>
-      <h1>Your Programs</h1>
-      <div>{renderFavoritePrograms()}</div>
+    <div className={styles.twoClmn}>
+      <div>
+        <h1>My Channels</h1>
+        <div>{renderFavoriteChannels()}</div>
+      </div>
+      <div>
+        <h1>My Programs</h1>
+        <div>{renderFavoritePrograms()}</div>
+      </div>
     </div>
   );
 };
