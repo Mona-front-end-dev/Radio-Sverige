@@ -44,13 +44,14 @@ const ProgramItem = (props) => {
       </button>
     );
   return (
+    <div>
     <div className={styles.card} key={props.program.id}>
-      <div className="title">
+      <div  >
         <img
           src={props.program.programimagewide}
           alt="program image"
-          width="100"
-          height="100"
+          width="100%"
+          height="100%"
         />
         <h2>{props.program.name}</h2>
         <div className={styles.buttonBox}>{favBtnContent}</div>
@@ -58,9 +59,10 @@ const ProgramItem = (props) => {
           onClick={() => clickInfoHandler(props.program.id)}
           className={styles.infoClick}
         >
-          Mor info
+          More info
         </span>
       </div>
+    </div>
     </div>
   );
 };

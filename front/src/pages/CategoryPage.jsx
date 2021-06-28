@@ -1,33 +1,37 @@
 import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { StationContext } from "../contexts/StationProvider";
-import styles from "../css/CategoryPage.module.css"
+import styles from "../css/CategoryPage.module.css";
 
 const CategoryPage = () => {
-    const history = useHistory();
-    const { getAllCategories, categories } = useContext(StationContext);
+  const history = useHistory();
+  const { getAllCategories, categories } = useContext(StationContext);
 
-    useEffect(() => {
-        getAllCategories();
-    }, []);
+  useEffect(() => {
+    getAllCategories();
+  }, []);
 
-    const clickHandler = (categoryId) => {
-        history.push(`/programs/category/${categoryId}`);
-    };
+  const clickHandler = (categoryId) => {
+    history.push(`/programs/category/${categoryId}`);
+  };
 
-    let content = <h2>Loading..</h2>
-    if(categories) {
-        content =  categories.map((c) => (
-            <div className={styles.card} key={c.id} >
-                <div className={styles.title}>
-                    <h2 className={styles.channelType}>Category specification</h2>
-                    <p>Category Name: {c.name} </p>
-                    <button className={styles.button} onClick={() => clickHandler(c.id)}>Programs</button>
-                </div>
-            </div>
-        ));
-    };
-    return <div>{content}</div>;
+  let content = <h2>Loading..</h2>;
+  if (categories) {
+    content = categories.map((c) => (
+        <div className="col-3">
+          <div className={`${styles.card} ${styles.title}`} key={c.id}>
+            <h2>{c.name}</h2>
+            <button
+              className={styles.button}
+              onClick={() => clickHandler(c.id)}
+            >
+              Programs
+            </button>
+          </div>
+        </div>
+    ));
+  }
+  return <div className="row">{content}</div>;
 };
 
 export default CategoryPage;

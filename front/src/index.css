@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
+  background-image: url("./assets/Radio.jpeg") ;
+
 }
 
 * {
@@ -15,4 +17,37 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.col-12 {
+  width: 100%;
+  padding: 15px;
+}
+
+
+.col-6 {
+  width: 50%;
+  padding: 15px;
+}
+
+
+.col-4 {
+  width: 33.3333%;
+  padding: 15px;
+}
+
+
+.col-3 {
+  width: 25%;
+  padding: 15px;
+}
+
+.col-2 {
+  width: 16.666666%;
+  padding: 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }

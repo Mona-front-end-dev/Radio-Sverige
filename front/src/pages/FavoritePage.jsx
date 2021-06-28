@@ -1,11 +1,12 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { StationContext } from "../contexts/StationProvider";
 import { FavoriteContext } from "../contexts/FavoritContext";
 import styles from "../css/ProgramPage.module.css";
 import ChannelItem from "../components/ChannelItem";
 import ProgramItem from "../components/ProgramItem";
+// import { UserContext } from "../contexts/UserContext";
 
-const FavoritePage = () => {
+const FavoritePage = (props) => {
   const { channels, getAllChannels, programs, getAllPrograms } =
     useContext(StationContext);
   const {
@@ -15,12 +16,16 @@ const FavoritePage = () => {
     favoritePrograms,
   } = useContext(FavoriteContext);
 
+  // const { user } = useContext(UserContext);
+
   useEffect(() => {
     getAllChannels();
     getAllPrograms();
     getFavoriteChannels();
     getFavoritePrograms();
   }, []);
+
+
 
   const renderFavoriteChannels = () => {
     return channels
@@ -31,20 +36,18 @@ const FavoritePage = () => {
   const renderFavoritePrograms = () => {
     return programs
       .filter((p) => favoritePrograms.find((fp) => fp.programId === p.id))
-      .map((p) => <ProgramItem program={p} isInFavorite={true} />);
+      .map((p) => <div className="col-3"><ProgramItem program={p} isInFavorite={true} /></div>);
   };
 
   return (
-    <div className={styles.twoClmn}>
-      <div >
-        <h1>My Channels</h1>
-        <div className={styles.margin}>{renderFavoriteChannels()}</div>
-      </div>
-      <div >
-        <h1>My Programs</h1>
-        <div className={styles.margin}>{renderFavoritePrograms()}</div>
-      </div>
-    </div>
+    <>
+  {/* <h1>Welcome {props.user}</h1> */}
+        <h2>My Channels</h2>
+        <div className="row">{renderFavoriteChannels()}</div>
+
+        <h2>My Programs</h2>
+        <div className="row">{renderFavoritePrograms()}</div>
+    </>
   );
 };
 

@@ -49,13 +49,14 @@ const ChannelItem = (props) => {
     );
 
   return (
+    <div className="col-3">
     <div className={styles.card} key={props.channel.id}>
       <div className="title">
         <img
           src={props.channel.image}
           alt="channel logo"
-          width="70"
-          height="70"
+          width="100%"
+          height="100%"
         />
         <h2 className={styles.channeltype}>
           {props.channel.channeltype}
@@ -78,6 +79,7 @@ const ChannelItem = (props) => {
           {favoriteButtonContent}
         </div>
       </div>
+    </div>
     </div>
   );
 };

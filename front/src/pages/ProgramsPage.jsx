@@ -3,7 +3,7 @@ import { useEffect, useContext } from "react";
 import { StationContext } from "../contexts/StationProvider";
 import styles from "../css/ProgramPage.module.css";
 import { FavoriteContext } from "../contexts/FavoritContext";
-import ProgramItem from "../components/ProgramItem";
+import ProgramItem from "../components/ProgramItem" ;
 
 const ProgramsPage = (props) => {
   const { getProgramsByChannelId, programsByChannelId } =
@@ -18,21 +18,23 @@ const ProgramsPage = (props) => {
 
   let content = <h2>Loading..</h2>;
 
-  const generateProgram = (program) => {
-    const isInFavorite = favoritePrograms.find(
-      (fp) => fp.programId === program.id
-    );
-    return <ProgramItem program={program} isInFavorite={isInFavorite} />;
-  };
+const generateProgram = (program) => {
+    const isInFavorite = favoritePrograms.find(fp => fp.programId === program.id);
+    return <ProgramItem program={program} isInFavorite={isInFavorite} /> 
+
+};
+
+
 
   if (programsByChannelId) {
     content = programsByChannelId.map((p) => (
-      <div key={p.id}>
-        <div className={styles.flex}>{generateProgram(p)}</div>
+      <div className="col-3" key={p.id}>
+
+          {generateProgram(p)}
       </div>
     ));
   }
-  return <div>{content}</div>;
+  return <div className="row">{content}</div>;
 };
 
 export default ProgramsPage;
