@@ -1,3 +1,12 @@
+.container {
+  max-width: 100%;
+}
+
+.res {
+  width: 100%;
+  padding: 15px;
+}
+
 .channelsList {
   color: #fff;
   text-align: center;
@@ -37,20 +46,27 @@
   border-radius: 5px;
 }
 
-/* tablet and desktop and extra large
+/* tablet and desktop and extra large */
 @media only screen and (min-width: 768px) {
-	.container {
-		max-width: 720px;
-		margin: 2rem auto;
-	}
+  .container {
+    max-width: 720px;
+    margin: 2rem auto;
+  }
 
-	.box-container {
-		margin: 2rem auto;
-	}
+  .res {
+    width: 32%;
+    padding: 14px;
+  }
+
+  .buttonBox {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0.25rem;
+  }
 }
-desktop and extra large
+/* desktop and extra large */
 @media only screen and (min-width: 992px) {
-	.container {
-		max-width: 960px;
-	}
-} */
+  .container {
+    max-width: 960px;
+  }
+}

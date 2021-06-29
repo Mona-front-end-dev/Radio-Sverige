@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { StationContext } from "../contexts/StationProvider";
-import styles from "../css/ProgramPage.module.css";
+import styles from "../css/ProgramByCategoryPage.module.css";
 
 const ProgramsByCategoryPage = (props) => {
   const history = useHistory();
@@ -21,7 +21,7 @@ const ProgramsByCategoryPage = (props) => {
   if (programsByCategoryId) {
     content = programsByCategoryId.map((p) => (
         
-      <div className="col-3">
+      <div className={`"col-3" ${styles.res}`}>
         <div
           className={styles.card}
           key={p.id}
@@ -45,7 +45,7 @@ const ProgramsByCategoryPage = (props) => {
       </div>
     ));
   }
-  return <div className="row">{content}</div>;
+  return <div className={`"row" ${styles.container}`}>{content}</div>;
 };
 
 export default ProgramsByCategoryPage;

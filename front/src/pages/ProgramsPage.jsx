@@ -28,13 +28,13 @@ const generateProgram = (program) => {
 
   if (programsByChannelId) {
     content = programsByChannelId.map((p) => (
-      <div className="col-3" key={p.id}>
+      <div className={`"col-3" ${styles.res}`} key={p.id}>
 
           {generateProgram(p)}
       </div>
     ));
   }
-  return <div className="row">{content}</div>;
+  return <div className={`"row" ${styles.container}`}>{content}</div>;
 };
 
 export default ProgramsPage;

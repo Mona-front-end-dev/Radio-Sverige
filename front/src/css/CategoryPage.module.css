@@ -1,3 +1,12 @@
+.container {
+  max-width: 100%;
+}
+
+.res {
+  width: 100%;
+  padding: 15px;
+}
+
 .title {
   color: #fff;
 }
@@ -24,3 +33,37 @@
   background-color: transparent;
   border-radius: 5px;
 }
+
+/* tablet and desktop and extra large */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .res {
+    width: 50%;
+    padding: 15px;
+  }
+}
+
+/* desktop and extra large */
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .res {
+    width: 25%;
+    padding: 15px;
+  }
+
+  .cardTitele {
+    font-size: 1rem;
+  }
+}
+
+
+

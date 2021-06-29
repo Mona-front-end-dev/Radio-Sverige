@@ -54,8 +54,8 @@ const ChannelItem = (props) => {
     );
 
   return (
-    <div className="col-3">
-      <div className={styles.card} key={props.channel.id}>
+    <div className={`"col-3" ${styles.res}`}>
+      <div className={`${styles.card} `} key={props.channel.id}>
         <div className="title">
           <img
             src={props.channel.image}

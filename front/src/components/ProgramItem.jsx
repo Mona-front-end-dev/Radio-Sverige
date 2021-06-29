@@ -55,7 +55,7 @@ const ProgramItem = (props) => {
             width="100%"
             height="100%"
           />
-          <h2>{props.program.name}</h2>
+          <h2 className={styles.cardTitle}>{props.program.name}</h2>
           <div className={styles.flex}>
             <button
               onClick={() => clickInfoHandler(props.program.id)}
