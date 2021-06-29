@@ -48,11 +48,9 @@ const SchedulePage = (props) => {
   };
 
   const getActiveClass = (number) => {
-    if(number === activatedDay)
-      return ` ${styles.active}`;
-    else
-      return "";
-} 
+    if (number === activatedDay) return ` ${styles.active}`;
+    else return "";
+  };
 
   let content = <h2>Loading..</h2>;
   let list = "";
@@ -136,13 +134,14 @@ const SchedulePage = (props) => {
       <div className={`col-2 ${styles.res}`}>
         <div className={styles.card} key={ch.starttimeutc}>
           <div className={styles.title}>
-          <img
-        
-            src={ch.imageurl}
-            alt="Schedule image"
-            width="100%"
-            height="100%"
-          />
+            <img
+              src={
+                ch.imageurltemplate ? ch.imageurltemplate : "../oldRadio.jpeg"
+              }
+              alt="Schedule image"
+              width="100%"
+              height="100%"
+            />
             <h2 className={styles.channelType}> {ch.title}</h2>
             <p className={styles.channelType}> {ch.description}</p>
             <p className={styles.channelType}>
@@ -155,7 +154,7 @@ const SchedulePage = (props) => {
   }
   return (
     <section className={styles.schSection}>
-      <div >{list}</div>
+      <div>{list}</div>
       <div className={`row ${styles.container}`}>{content}</div>
     </section>
   );
