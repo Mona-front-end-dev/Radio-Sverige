@@ -35,8 +35,6 @@
 .buttonBox {
   display: flex;
   justify-content: space-between;
-  margin-left: 2rem;
-  margin-right: 2rem;
 }
 
 .button {
@@ -61,7 +59,7 @@
   .buttonBox {
     display: flex;
     justify-content: space-between;
-    margin-left: 0.25rem;
+    /* margin-left: 0.25rem; */
   }
 }
 /* desktop and extra large */

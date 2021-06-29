@@ -1,11 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../css/Navbar.module.css";
 
 const Navbar = (props) => {
 const { logout } = useContext(UserContext);
+const [menuCollapsed, setMenuCollapsed] = useState(false);
 const [links, setLinks] = useState([
     
     
@@ -23,6 +26,20 @@ const [links, setLinks] = useState([
     
 
 ]);
+
+const onCollapseMenu = () => {
+    setMenuCollapsed(! menuCollapsed)
+
+    if(menuCollapsed)
+        document.body.classList.remove('menu-open');
+    else    
+        document.body.classList.add('menu-open');
+}
+
+const onCloseNavMob = () => {
+    setMenuCollapsed(false);
+    document.body.classList.remove('menu-open');
+}
 
 const logoutHandler = async (e) => {
     e.preventDefault();
@@ -62,11 +79,26 @@ const renderLinks = () => {
 
 return <header className={styles.topHeader}>
     <Link className={`${styles.link} ${styles.brand}`} to={'/'}>
-                RadioSWEDEN
+                <b>RadioSWEDEN</b>
                 </Link>
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${styles.md}`}>
         {renderLinks() }
     </nav>
+    <nav className={`${styles.navmob} ${menuCollapsed ? styles.expanded : ""}`}>
+        <FontAwesomeIcon
+            icon={faTimes}
+            size="2x"
+            onClick={() => onCollapseMenu()}
+            className={styles.close}
+        />
+        {renderLinks()}
+    </nav>
+    <FontAwesomeIcon
+        icon={faBars}
+        size="2x"
+        className={styles.collapseButton}
+        onClick={() => onCollapseMenu()}
+      />
 </header> 
 }
 

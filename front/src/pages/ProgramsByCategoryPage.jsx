@@ -21,7 +21,7 @@ const ProgramsByCategoryPage = (props) => {
   if (programsByCategoryId) {
     content = programsByCategoryId.map((p) => (
         
-      <div className={`"col-3" ${styles.res}`}>
+      <div className={`col-3 ${styles.res}`}>
         <div
           className={styles.card}
           key={p.id}

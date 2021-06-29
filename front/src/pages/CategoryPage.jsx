@@ -18,7 +18,7 @@ const CategoryPage = () => {
   let content = <h2>Loading..</h2>;
   if (categories) {
     content = categories.map((c) => (
-        <div className={`"col-3" ${styles.res}`}>
+        <div className={`col-3 ${styles.res}`}>
           <div className={`${styles.card} ${styles.title}`} key={c.id}>
             <h2>{c.name}</h2>
             <button

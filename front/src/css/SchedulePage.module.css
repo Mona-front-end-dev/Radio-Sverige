@@ -1,4 +1,13 @@
-.title {
+.container {
+  max-width: 100%;
+}
+
+.res {
+  width: 100%;
+  padding: 15px;
+}
+
+.title h2{
     color: #fff;
 }
 
@@ -17,6 +26,7 @@
 
   .dayList {
     list-style: none;
+    background: #000;
   }
 
   /* .flex {
@@ -43,10 +53,64 @@ h1 {
 
 ul {
     display: flex;
-    justify-content: space-around
+    justify-content: flex-start;
+    padding: 0;
 }
 
 li {
     display: list-item;
+}
+.schBtn {
+  border: none;
+ 
+  font-size: 1.5rem;
+}
+
+ul .schBtn{
+  background-color: transparent;
+  padding: 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+ul .schBtn.active {
+    /* font-weight: bold; */
+  color: rgb(0,0,0);
+  background-color: #fff;
+}
+
+ul .schBtn:hover{
+  cursor: pointer;
+}
+
+/* tablet and desktop and extra large */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .res {
+    width: 33.333%;
+    padding: 15px;
+  }
+}
+
+/* desktop and extra large */
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .res {
+    width: 33.333%;
+    padding: 15px;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
 }
 

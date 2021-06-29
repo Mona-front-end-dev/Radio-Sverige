@@ -18,7 +18,7 @@ export const UserProvider = (props) => {
         const body = await response.json();
 
         if(body.lastID){
-            alert('you have registered successfully.');
+            alert('you have been registered successfully.');
         
             // redirect to login page
             history.push(`login/`);

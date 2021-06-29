@@ -54,7 +54,7 @@ const ChannelItem = (props) => {
     );
 
   return (
-    <div className={`"col-3" ${styles.res}`}>
+    <div className={`col-3 ${styles.res}`}>
       <div className={`${styles.card} `} key={props.channel.id}>
         <div className="title">
           <img
@@ -79,7 +79,7 @@ const ChannelItem = (props) => {
               className={styles.button}
               onClick={() => scheduleHandler(props.channel.id)}
             >
-              Schema
+              Schedule
               </button>
               
             {favoriteButtonContent}

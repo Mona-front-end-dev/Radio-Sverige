@@ -38,8 +38,20 @@
     text-align: center;
   }
   
-  h1 {
-    text-decoration: underline;
+  h1{
+    text-align: left;
+    border-bottom: 2px solid #000;
+    text-decoration: none;
+    color: #000;
+  }
+
+  h2.faveTitle {
+    text-align: center;
+    width: 80%;
+    border-bottom: 2px solid #000;
+    text-decoration: none;
+    color: #000;
+    margin: auto;
   }
   
   .infoClick {
@@ -47,6 +59,10 @@
     color: #fff;
     background-color: transparent;
     border-radius: 5px;
+  }
+
+  .margin {
+    margin-top: 2rem;
   }
   
   /* tablet and desktop and extra large */
