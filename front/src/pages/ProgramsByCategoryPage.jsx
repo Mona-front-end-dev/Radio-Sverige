@@ -20,7 +20,6 @@ const ProgramsByCategoryPage = (props) => {
   let content = <h2>Loading..</h2>;
   if (programsByCategoryId) {
     content = programsByCategoryId.map((p) => (
-        
       <div className={`col-3 ${styles.res}`}>
         <div
           className={styles.card}

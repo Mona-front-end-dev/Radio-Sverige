@@ -22,10 +22,11 @@ const ProgramPage = (props) => {
             width="100%"
             height="100%"
           />
-          <p className={styles.channelType}><b>{programById.name}</b></p>
+          <p className={styles.channelType}>
+            <b>{programById.name}</b>
+          </p>
           <p> {programById.description} </p>
           <p> {programById.broadcastinfo} </p>
-          
         </div>
       </div>
     );

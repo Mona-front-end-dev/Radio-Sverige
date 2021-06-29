@@ -1,79 +1,78 @@
 .navbar {
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-  }
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
 
-  .navbar.md {
-    display: none;
-  }
-  
-  .link {
-    color: rgb(68, 66, 66);
-    font-size: 1.2rem;
-    text-decoration: none;
-    margin: 0 0.5rem;
-  }
-  
-  .link:hover {
-    color: rgb(63, 61, 61);
-    font-weight: bold;
-  }
-  
-  .brand {
-    padding: 0.5rem;
-  }
+.navbar.md {
+  display: none;
+}
 
-  .topHeader {
-    border-bottom:solid 1px rgb(150, 146, 146);
-    display: flex;
-    justify-content: space-between;
-  }
+.link {
+  color: rgb(68, 66, 66);
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
 
-  .navmob {
-    background-color: #e2cfc6;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 200px;
-    height: 100vh;
-    box-shadow: -2px 0 20px;
-    transition: 300ms;
-    padding-top: 20px;
-    z-index: 20;
-  }
+.link:hover {
+  color: rgb(63, 61, 61);
+  font-weight: bold;
+}
 
-  .navmob.expanded {
-    right: 0;
-  }
+.brand {
+  padding: 0.5rem;
+}
 
-  .navmob .link {
-    padding-top: 20px;
-  }
+.topHeader {
+  border-bottom: solid 1px rgb(150, 146, 146);
+  display: flex;
+  justify-content: space-between;
+}
 
-  .collapseButton {
-    margin-right: 15px;
-    margin-top: 3px;
-    cursor: pointer;
-  }
+.navmob {
+  background-color: #e2cfc6;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 200px;
+  height: 100vh;
+  box-shadow: -2px 0 20px;
+  transition: 300ms;
+  padding-top: 20px;
+  z-index: 20;
+}
 
-  .close {
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    cursor: pointer;
+.navmob.expanded {
+  right: 0;
+}
 
-  }
+.navmob .link {
+  padding-top: 20px;
+}
 
-  /* tablet and desktop and extra large */
+.collapseButton {
+  margin-right: 15px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* tablet and desktop and extra large */
 @media only screen and (min-width: 768px) {
-	.container {
-		max-width: 720px;
-		margin: 2rem auto;
-	}
-  
+  .container {
+    max-width: 720px;
+    margin: 2rem auto;
+  }
+
   .navbar.md {
     display: flex;
   }
@@ -85,11 +84,10 @@
   .collapseButton {
     display: none;
   }
-
 }
 /* desktop and extra large */
 @media only screen and (min-width: 992px) {
-	.container {
-		max-width: 960px;
-	}
+  .container {
+    max-width: 960px;
+  }
 }

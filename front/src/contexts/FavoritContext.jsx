@@ -80,7 +80,7 @@ export const FavoritProvider = (props) => {
     addToProgramFavoriteList,
     getFavoritePrograms,
     deleteFromProgramFavoriteList,
-    favoritePrograms
+    favoritePrograms,
   };
 
   return (

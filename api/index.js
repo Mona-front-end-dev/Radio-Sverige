@@ -20,21 +20,18 @@ app.use(
     secret: "The face off",
     resave: false,
     saveUnitialized: true,
-    cookie: {secure: "auto"}
-  }
-)); 
+    cookie: { secure: "auto" },
+  })
+);
 
 app.use(userPrefix, userRoutes);
 
-app.use(express.static(path.join(__dirname, "../build")))
+app.use(express.static(path.join(__dirname, "../build")));
 
 app.use("/api/v1/channels", channelRoutes);
 app.use("/api/v1/programs", programRoutes);
 app.use("/api/v1/categories", categoryRoutes);
 app.use("/api/v1/broadcasts", broadcastRoutes);
-
-
-
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
-
 const ChannelItem = (props) => {
   const history = useHistory();
   const { addToChannelFavoriteList, deleteFromChannelFavoriteList } =
@@ -80,8 +79,8 @@ const ChannelItem = (props) => {
               onClick={() => scheduleHandler(props.channel.id)}
             >
               Schedule
-              </button>
-              
+            </button>
+
             {favoriteButtonContent}
           </div>
         </div>

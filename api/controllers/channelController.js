@@ -5,7 +5,6 @@ const paginationFalse = "pagination=false";
 
 const utils = require("../core/utilities");
 
-
 //kunna lista alla kanaler
 const getAllChannels = async (req, res) => {
   let response = await fetch(
@@ -19,7 +18,7 @@ const getAllChannels = async (req, res) => {
 const getChannelById = async (req, res) => {
   let response = await fetch(
     `http://api.sr.se/api/v2/channels/${req.params.channelId}?${json}`
-    );
+  );
   body = await response.json();
   res.json(body.channel);
 };
@@ -29,7 +28,7 @@ const getChannelSchedule = async (req, res) => {
     `http://api.sr.se/api/v2/scheduledepisodes?${json}&${paginationFalse}&channelId=${req.params.channelId}&date=${req.query.date}`
   );
   channelSchedule = await channelSchedule.json();
-  
+
   channelSchedule.schedule = channelSchedule.schedule.map((p) => {
     return {
       ...p,
@@ -40,11 +39,8 @@ const getChannelSchedule = async (req, res) => {
   res.json(channelSchedule.schedule);
 };
 
-
-
 module.exports = {
   getAllChannels,
   getChannelById,
-  getChannelSchedule
-
+  getChannelSchedule,
 };

@@ -24,8 +24,6 @@ const FavoritePage = (props) => {
     getFavoritePrograms();
   }, []);
 
-
-
   const renderFavoriteChannels = () => {
     return channels
       .filter((c) => favoriteChannels.find((fc) => fc.channelId === c.id))
@@ -35,25 +33,32 @@ const FavoritePage = (props) => {
   const renderFavoritePrograms = () => {
     return programs
       .filter((p) => favoritePrograms.find((fp) => fp.programId === p.id))
-      .map((p) => <div className={`col-3 ${styles.res}`}><ProgramItem program={p} isInFavorite={true} /></div>);
+      .map((p) => (
+        <div className={`col-3 ${styles.res}`}>
+          <ProgramItem program={p} isInFavorite={true} />
+        </div>
+      ));
   };
 
   return (
     <>
-  {/* <h1>Welcome {props.user}</h1> */}
-        <div className="row">
-          <div className={`col-12 ${styles.margin}`}>
-            <h2 className={styles.faveTitle}>My Channels</h2>
-          </div>
+      <div className="row">
+        <div className={`col-12 ${styles.margin}`}>
+          <h2 className={styles.faveTitle}>My Channels</h2>
         </div>
-        <div className={`row ${styles.container}`}>{renderFavoriteChannels()}</div>
+      </div>
+      <div className={`row ${styles.container}`}>
+        {renderFavoriteChannels()}
+      </div>
 
-        <div className="row">
-          <div className="col-12">
-            <h2 className={styles.faveTitle}>My Programs</h2>
-          </div>
+      <div className="row">
+        <div className="col-12">
+          <h2 className={styles.faveTitle}>My Programs</h2>
         </div>
-        <div className={`row ${styles.container}`}>{renderFavoritePrograms()}</div>
+      </div>
+      <div className={`row ${styles.container}`}>
+        {renderFavoritePrograms()}
+      </div>
     </>
   );
 };

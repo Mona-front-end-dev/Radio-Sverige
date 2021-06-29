@@ -59,7 +59,6 @@
   .buttonBox {
     display: flex;
     justify-content: space-between;
-    /* margin-left: 0.25rem; */
   }
 }
 /* desktop and extra large */
