@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import styles from "../css/RegisterPage.module.css";
+import styles from "../css/LoginPage.module.css";
 import { UserContext } from "../contexts/UserContext";
 
 const LoginPage = () => {
@@ -23,7 +23,7 @@ const LoginPage = () => {
 
     return ( 
         <form className={styles.card} onSubmit={(e) => handleAccountSubmit(e)} >
-            <div className={styles.title}>
+            <div className={`${styles.title} ${styles.margin}`}>
                 <label htmlFor="exampleInputEmail1">Email address: </label>
                 <input type="email" className="formControl" placeholder="Leanna@example.com" onChange={emailHandler}/>
             </div>

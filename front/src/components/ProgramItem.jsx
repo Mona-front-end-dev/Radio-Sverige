@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { FavoriteContext } from "../contexts/FavoritContext";
 import styles from "../css/ProgramPage.module.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import { useHistory } from "react-router-dom";
 
 const ProgramItem = (props) => {
@@ -27,42 +29,44 @@ const ProgramItem = (props) => {
   if (!user) favBtnContent = null;
   else if (props.isInFavorite)
     favBtnContent = (
-      <button
+      <FontAwesomeIcon
+        icon={faHeart}
+        size="2x"
         className={styles.button}
         onClick={() => programFavRemoveHandler(props.program.id)}
-      >
-        Remove the program from my favarites
-      </button>
+      />
     );
   else
     favBtnContent = (
-      <button
+      <FontAwesomeIcon
+        icon={farHeart}
+        size="2x"
         className={styles.button}
         onClick={() => programFavAddHandler(props.program.id)}
-      >
-        Add the program to my favarites
-      </button>
+      />
     );
   return (
     <div>
-    <div className={styles.card} key={props.program.id}>
-      <div  >
-        <img
-          src={props.program.programimagewide}
-          alt="program image"
-          width="100%"
-          height="100%"
-        />
-        <h2>{props.program.name}</h2>
-        <div className={styles.buttonBox}>{favBtnContent}</div>
-        <span
-          onClick={() => clickInfoHandler(props.program.id)}
-          className={styles.infoClick}
-        >
-          More info
-        </span>
+      <div className={styles.card} key={props.program.id}>
+        <div>
+          <img
+            src={props.program.programimagewide}
+            alt="program image"
+            width="100%"
+            height="100%"
+          />
+          <h2>{props.program.name}</h2>
+          <div className={styles.flex}>
+            <button
+              onClick={() => clickInfoHandler(props.program.id)}
+              className={styles.infoClick}
+            >
+              More info
+            </button>
+            <div className={styles.buttonBox}>{favBtnContent}</div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

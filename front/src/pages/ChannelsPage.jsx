@@ -26,7 +26,7 @@ const ChannelsPage = () => {
   else channelView = null;
 
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header} ${styles.container}`}>
       <h1>Channel list</h1>
       <div className="row">{channelView}</div>
     </div>

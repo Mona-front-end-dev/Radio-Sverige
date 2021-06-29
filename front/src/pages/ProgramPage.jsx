@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { StationContext } from "../contexts/StationProvider";
-import styles from "../css/ProgramPage.module.css";
+import styles from "../css/ProgramInfo.module.css";
 
 const ProgramPage = (props) => {
   const { getProgramById, programById } = useContext(StationContext);

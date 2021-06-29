@@ -10,7 +10,7 @@
     border-radius: 10px;
     padding: 1rem;
     color: #fff;
-    /* margin: 3rem; */
+    margin: 3rem;
   }
   
   .card:hover {
@@ -38,9 +38,6 @@ h1 {
   text-decoration: underline;
 }
 
-/* .margin {
-  margin: 0 10rem;
-} */
 
 
 .infoClick {

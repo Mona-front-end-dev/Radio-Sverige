@@ -20,4 +20,7 @@
 
 .button {
   cursor: pointer;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 5px;
 }
